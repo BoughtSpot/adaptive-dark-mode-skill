@@ -1,0 +1,18 @@
+{
+  "name": "boughtspot",
+  "description": "BoughtSpot's open-source skills for Claude Code and other Agent Skills clients.",
+  "owner": {
+    "name": "BoughtSpot",
+    "url": "https://github.com/BoughtSpot"
+  },
+  "plugins": [
+    {
+      "name": "adaptive-dark-mode",
+      "source": "./",
+      "description": "Audit a website's theming and make it ready for Safari's Adaptive Dark Mode.",
+      "version": "1.0.0",
+      "category": "development",
+      "tags": ["dark-mode", "css", "safari", "accessibility", "frontend"]
+    }
+  ]
+}

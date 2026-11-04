@@ -1,0 +1,13 @@
+{
+  "name": "adaptive-dark-mode",
+  "version": "1.0.0",
+  "description": "Audit a website's theming and make it ready for Safari 27.3's Adaptive Dark Mode: static audit, runtime light/dark probe, color-scheme and light-dark() fixes for Tailwind, Next.js, SvelteKit, Rails, Bootstrap and more.",
+  "author": {
+    "name": "BoughtSpot",
+    "url": "https://github.com/BoughtSpot"
+  },
+  "homepage": "https://github.com/BoughtSpot/adaptive-dark-mode-skill#readme",
+  "repository": "https://github.com/BoughtSpot/adaptive-dark-mode-skill",
+  "license": "MIT",
+  "keywords": ["dark-mode", "adaptive-dark-mode", "safari", "webkit", "color-scheme", "light-dark", "prefers-color-scheme", "css", "theming", "accessibility"]
+}
