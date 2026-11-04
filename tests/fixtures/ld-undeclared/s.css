@@ -1,0 +1,2 @@
+:root{--bg:light-dark(#fff,#111);--fg:light-dark(#111,#eee)}
+body{background:var(--bg);color:var(--fg)}

@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>color-scheme only set from JavaScript</title>
+<style>
+  body { background: #fff; color: #111; font: 16px/1.5 system-ui; margin: 0; padding: 16px; }
+  @media (prefers-color-scheme: dark) { body { background: #111317; color: #eee; } }
+</style></head>
+<body>
+<p>The declaration below only exists after a script runs.</p>
+<script>document.documentElement.style.colorScheme = 'light dark';</script>
+</body></html>

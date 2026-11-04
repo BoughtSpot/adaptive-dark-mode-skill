@@ -1,0 +1,8 @@
+:root { color-scheme: light dark;
+  --surface-0: light-dark(#ffffff, #0f1115); --surface-1: light-dark(#f6f7f9, #161920);
+  --text: light-dark(#14161a, #e7e9ee); --text-muted: light-dark(#5b6270, #a2a9b6); --border: light-dark(#e2e5ea, #2a2f3a); }
+body { background: var(--surface-0); color: var(--text); font: 16px/1.5 system-ui; margin: 0; }
+header { padding: 16px; }
+.card { background: var(--surface-1); border: 1px solid var(--border); padding: 16px; margin: 16px; }
+.muted { color: var(--text-muted); }
+input { background: var(--surface-1); color: var(--text); border: 1px solid var(--border); }

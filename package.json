@@ -1,0 +1,40 @@
+{
+  "name": "adaptive-dark-mode-skill",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Agent Skill that audits a website's theming and makes it ready for Safari's Adaptive Dark Mode (color-scheme, light-dark(), prefers-color-scheme).",
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoughtSpot/adaptive-dark-mode-skill.git"
+  },
+  "homepage": "https://github.com/BoughtSpot/adaptive-dark-mode-skill#readme",
+  "bugs": "https://github.com/BoughtSpot/adaptive-dark-mode-skill/issues",
+  "keywords": [
+    "agent-skills",
+    "claude-code",
+    "dark-mode",
+    "adaptive-dark-mode",
+    "safari",
+    "webkit",
+    "color-scheme",
+    "light-dark",
+    "prefers-color-scheme",
+    "css",
+    "accessibility"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "npm run test:audit && npm run validate && npm run test:probe",
+    "test:audit": "python3 -I -m unittest discover -s tests -v",
+    "test:probe": "node --test tests/probe.test.mjs",
+    "validate": "python3 -I tests/validate_skill.py",
+    "browsers": "playwright install chromium webkit"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  }
+}

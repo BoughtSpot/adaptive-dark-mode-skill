@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff">
+<title>Declared but incomplete</title>
+<style>
+  body { background: #ffffff; color: #1a1a1a; font: 16px/1.5 system-ui; margin: 0; }
+  header { background: #f4f4f5; padding: 16px; }
+  .card { background: white; border: 1px solid #ddd; padding: 16px; margin: 16px; }
+  .muted { color: #888; }
+  .panel { padding: 16px; margin: 16px; }   /* no bg: inherits UA canvas */
+  .brand { color: #1d4ed8; }
+</style></head>
+<body>
+<header><img src="img/logo.png" alt="Acme logo" width="200" height="60"> <span class="brand">Acme</span></header>
+<div class="card"><h2>Card on white</h2><p class="muted">Muted grey text that fails contrast.</p>
+  <img src="img/product.jpg" alt="Red ball" width="150"></div>
+<div class="panel"><p>Plain panel text.</p>
+  <svg width="24" height="24" viewBox="0 0 24 24" aria-label="cart"><path fill="#111" d="M2 2h20v20H2z"/></svg>
+  <input placeholder="Email"> <select><option>One</option></select>
+</div>
+<canvas id="c" width="300" height="120"></canvas>
+<script>const x=document.getElementById('c').getContext('2d');x.fillStyle='#222';x.font='20px sans-serif';x.fillText('Chart label',10,60);</script>
+</body></html>
