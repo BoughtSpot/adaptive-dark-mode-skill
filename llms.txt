@@ -1,0 +1,20 @@
+# Adaptive Dark Mode Skill
+
+> An Agent Skill (SKILL.md format) that audits a website's theming and makes it ready for Safari 27.3's Adaptive Dark Mode, which automatically darkens light sites that don't declare `color-scheme: light dark`. It includes a static audit (Python), a runtime light/dark probe (browser JavaScript), copy-ready fixes, and framework notes. MIT licensed.
+
+The skill lives in `skills/adaptive-dark-mode/`. Install by copying that folder into your agent's skills directory, or with `/plugin marketplace add BoughtSpot/adaptive-dark-mode-skill` in Claude Code.
+
+## Skill
+- [SKILL.md](https://github.com/BoughtSpot/adaptive-dark-mode-skill/blob/main/skills/adaptive-dark-mode/SKILL.md): workflow, the three-path decision, fix order, report template
+- [Safari facts and open questions](https://github.com/BoughtSpot/adaptive-dark-mode-skill/blob/main/skills/adaptive-dark-mode/references/adm-facts.md)
+- [Fix patterns](https://github.com/BoughtSpot/adaptive-dark-mode-skill/blob/main/skills/adaptive-dark-mode/references/fix-patterns.md): color-scheme, light-dark(), theme toggles, images, canvas
+- [Framework notes](https://github.com/BoughtSpot/adaptive-dark-mode-skill/blob/main/skills/adaptive-dark-mode/references/frameworks.md): Tailwind, Next.js, SvelteKit, Rails, Bootstrap, MUI, WordPress
+- [Verification](https://github.com/BoughtSpot/adaptive-dark-mode-skill/blob/main/skills/adaptive-dark-mode/references/verification.md)
+
+## Tools
+- [audit.py](https://github.com/BoughtSpot/adaptive-dark-mode-skill/blob/main/skills/adaptive-dark-mode/scripts/audit.py): static scanner, Python 3.9+ stdlib
+- [probe.js](https://github.com/BoughtSpot/adaptive-dark-mode-skill/blob/main/skills/adaptive-dark-mode/scripts/probe.js): runtime probe, one browser expression
+
+## Optional
+- [Contributing and repo invariants](https://github.com/BoughtSpot/adaptive-dark-mode-skill/blob/main/AGENTS.md)
+- [WebKit announcement](https://webkit.org/blog/18541/introducing-adaptive-dark-mode/)

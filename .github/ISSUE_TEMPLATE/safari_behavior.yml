@@ -1,0 +1,30 @@
+name: Safari behavior report
+description: Adaptive Dark Mode did something different from what the skill says, or you resolved one of its open questions.
+labels: ["safari-behavior"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        These reports keep `references/adm-facts.md` accurate. Problems with Safari itself go to Apple through Feedback Assistant.
+  - type: input
+    id: safari
+    attributes: { label: Safari version and build, placeholder: "Safari 27.3 (beta 2)" }
+    validations: { required: true }
+  - type: input
+    id: os
+    attributes: { label: OS and device, placeholder: "macOS 27.3 beta 2, MacBook Air / iOS 27.3, iPhone" }
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Page or minimal HTML
+      description: A public URL, or the smallest HTML/CSS that shows the behavior.
+      render: html
+    validations: { required: true }
+  - type: textarea
+    id: observed
+    attributes: { label: What Safari did, description: Screenshots with Adaptive Dark Mode on and off help a lot. }
+    validations: { required: true }
+  - type: textarea
+    id: docs
+    attributes: { label: What the skill says, description: "Quote or link the line in adm-facts.md / SKILL.md, or the open question this answers." }

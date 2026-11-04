@@ -1,0 +1,27 @@
+name: Bug, false positive or false negative
+description: The audit, probe or guidance got something wrong.
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: part
+    attributes:
+      label: Which part?
+      options: [audit.py, probe.js / probe.mjs, SKILL.md workflow, fix-patterns.md, frameworks.md, verification.md, plugin / install]
+    validations: { required: true }
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: The smallest snippet or project layout that triggers it, plus the command you ran.
+    validations: { required: true }
+  - type: textarea
+    id: actual
+    attributes: { label: What happened, description: "Paste the relevant output (audit --json or the probe's JSON)." , render: text }
+    validations: { required: true }
+  - type: textarea
+    id: expected
+    attributes: { label: What you expected }
+    validations: { required: true }
+  - type: input
+    id: env
+    attributes: { label: Environment, placeholder: "skill v1.0.0, Python 3.12, Node 22, agent: Claude Code / Codex / Cursor / …" }

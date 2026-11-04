@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you reference this skill, please cite it as below."
+title: "Adaptive Dark Mode Skill"
+abstract: "An Agent Skill that audits a website's theming and makes it ready for Safari's Adaptive Dark Mode (color-scheme, light-dark(), prefers-color-scheme)."
+type: software
+authors:
+  - name: BoughtSpot
+version: 1.0.0
+date-released: 2026-11-04
+license: MIT
+repository-code: "https://github.com/BoughtSpot/adaptive-dark-mode-skill"
+keywords:
+  - agent-skills
+  - dark-mode
+  - adaptive-dark-mode
+  - safari
+  - color-scheme
+  - css

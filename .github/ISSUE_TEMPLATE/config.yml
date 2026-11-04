@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Problem with Safari itself
+    url: https://feedbackassistant.apple.com/
+    about: Report Safari/WebKit bugs to Apple through Feedback Assistant.
+  - name: WebKit's Adaptive Dark Mode announcement
+    url: https://webkit.org/blog/18541/introducing-adaptive-dark-mode/
+    about: The source of the facts this skill relies on.
