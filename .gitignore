@@ -1,0 +1,8 @@
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+# probe.mjs output
+adm-probe/
+test-results/
+playwright-report/

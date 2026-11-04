@@ -1,0 +1,5 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+# Fixtures are tiny fake sites; keep them out of GitHub's language stats.
+tests/fixtures/** linguist-vendored
