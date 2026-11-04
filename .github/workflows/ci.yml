@@ -1,0 +1,67 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: audit.py + skill validation (Python ${{ matrix.python }}${{ matrix.pillow && ', Pillow' || '' }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { python: "3.9",  pillow: false }   # oldest supported, stdlib-only path
+          - { python: "3.12", pillow: true }
+          - { python: "3.14", pillow: true }
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install Pillow (optional raster checks)
+        if: matrix.pillow
+        run: python -m pip install --disable-pip-version-check pillow
+      - name: Validate SKILL.md against the Agent Skills spec and repo invariants
+        run: python -I tests/validate_skill.py
+      - name: Audit regression tests
+        run: python -I -m unittest discover -s tests -v
+      - name: Smoke-run the audit on every fixture (Markdown output)
+        run: |
+          for d in tests/fixtures/*/; do
+            python -I skills/adaptive-dark-mode/scripts/audit.py "$d" > /dev/null
+          done
+
+  probe:
+    name: probe.js + probe.mjs (Chromium, WebKit)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - run: npm run test:probe
+
+  plugin:
+    name: Claude Code plugin manifests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+      - name: claude plugin validate
+        run: npx -y @anthropic-ai/claude-code plugin validate .
